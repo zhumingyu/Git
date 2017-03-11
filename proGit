@@ -1,0 +1,11 @@
+1.  init a repostitory in an existing dir
+    git init, git add, git commit -m ''
+2.  track new files
+    git add 
+3.  short status
+    git status -s/--short
+        ??: not tracked files
+        M:  modified files
+        A:  new files have been added to staging area.
+4.  viewing your staged and unstaged changes
+    
