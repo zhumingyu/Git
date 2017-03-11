@@ -79,5 +79,18 @@
 21. creating tags
     2种tags:lightweight and annotated(注解)
     annotated tags
-    git tag -a v1.1 -m 'my version 1.4'
-    git show v1.1 显示tag
+        git tag -a v1.1 -m 'my version 1.4'
+        git show v1.1 显示tag
+        注:tag是在commit后添加
+    lightweight tags
+        git tag v1.1-lw
+        git show v1.1-lw don't see extra tag information
+22. tagging later
+    git tag -a -v1.2 9fceb02 
+23. sharing tags
+    git push origin tagname 默认情况并不push tags
+        eg:git push origin v1.1
+    git push origin --tags 一次性推送所有tags
+24. checking out tags
+    git checkout -b branchname tagname
+
