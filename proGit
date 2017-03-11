@@ -8,4 +8,76 @@
         M:  modified files
         A:  new files have been added to staging area.
 4.  viewing your staged and unstaged changes
-    
+    git diff 
+    \todo git diff --cached/--staged 两者同义词,但具体区别待查
+5.  commiting your changes
+    git commit
+    git config --global core.editor  配置默认编辑器 p54
+6.  skipping the staging area
+    git add -a 将所有修改文件自动加入stage,谨慎使用
+        eg: git add -a -m 'your commit'
+7.  removing files
+    git rm 
+        git rm --cached 删除所有跟踪files,硬盘上并未真正删除
+8.  moving files
+    git mv
+9.  viewing the commit history
+    git log 
+        git log -p show the difference introduced in each commit
+        git log -2 limit the output to only the last two entries
+        git log --stat  see some abbreviated stats for each commit简洁显示
+        git log --pretty=oneline    简洁优美显示,针对许多commit
+        git log --pretty=format:"%h-%an,%ar:%s" 自定义格式
+                %H--commit hash
+                %h--简洁commit hash
+                %T--tree hash
+                %t--同上
+                %P--parent hashes
+                %p--同上
+                %an--author name
+                %ae--author email
+                %ad--author date
+                %ar--author data,relative(相对现在时间作为比较)
+                %cn--commiter name
+                %ce--commiter email
+                %cd--commiter date
+                %cr--commiter date,relative
+                %s--subject
+        git log --pretty=format:"%h %s" --graph 以ASCII graph show your branch and merge history
+10. limiting log output p65
+    git log --since=2.weeks get the list of commits made in the last two weeks.
+            --author 过滤指定author
+            --grep search for keywords
+
+11. undoing things
+    git commit --amend 修改最后一次commit但并未push的commit
+        eg:git commit -m 'initial commit'
+           git add forgotten_file
+           git commit --amend
+    附:撤消最后一次commit,上面命令只是再次修改注释内容
+        git reset HEAD~
+12. unstaging a staged file
+    git reset HEAD <filename> 谨慎使用
+13. unmodifying a modified file
+    git checkout -- modified filename
+        eg: git checkout -- README.md
+14. showing your remotes
+    git remote -v
+15. adding remote repositories
+    git remote add <shortname> <url>
+16. fetching and pulling from your remotes
+    git fetch remote-name
+17. pushing to your remotes
+    git push remote-name branch-name
+18. inspecting(检查) a remote
+    git remote show remote-name
+19. removing and renaming remotes
+    git remote rename shortname-old shortname-new
+        eg:git remote rename pb paul
+20. listing your tags
+    git tag
+21. creating tags
+    2种tags:lightweight and annotated(注解)
+    annotated tags
+    git tag -a v1.1 -m 'my version 1.4'
+    git show v1.1 显示tag
