@@ -1,14 +1,26 @@
+chap 2
 1.  init a repostitory in an existing dir
     git init, git add, git commit -m ''
 2.  track new files
     git add 
 3.  short status
     git status -s/--short
-        ??: not tracked files
-        M:  modified files
+        ??: not tracked files 未追踪
+        M:  modified files 修改文件
         A:  new files have been added to staging area.
+ignoring file 50
+*~:忽略所有以～结尾的文件
+*.[oa]:忽略所有以o或a结尾的文件
+！lib.a: but do track lib.a,even though you're ignoring .a files above
+/TODO:only ignore the TODO file in the current dir,not subdir
+build: ignore all files in the build/ dir.
+doc/*.txt: ignore doc/notes.txt,but not doc/server/arch.txt
+doc/**/*.pdf: ignore all .pdf files in the doc/ dir
+
 4.  viewing your staged and unstaged changes
+Note:if you've staged all of your changes,will give you no output.
     git diff 
+see what you've staged that will go into your next commit
     \todo git diff --cached/--staged 两者同义词,但具体区别待查
 5.  commiting your changes
     git commit
@@ -16,9 +28,11 @@
 6.  skipping the staging area
     git add -a 将所有修改文件自动加入stage,谨慎使用
         eg: git add -a -m 'your commit'
-7.  removing files
+7.  removing files 56
     git rm 
         git rm --cached 删除所有跟踪files,硬盘上并未真正删除
+    git rm log/\*.log: 删除log目录下所有以.log结尾的文件 57
+    git rm \*~: 删除所有～结尾的文件
 8.  moving files
     git mv
 9.  viewing the commit history
@@ -56,37 +70,49 @@
            git commit --amend
     附:撤消最后一次commit,上面命令只是再次修改注释内容
         git reset HEAD~
-12. unstaging a staged file
+12. unstaging a staged file 66
     git reset HEAD <filename> 谨慎使用
 13. unmodifying a modified file
-    git checkout -- modified filename
+    git checkout -- modified_filename
         eg: git checkout -- README.md
 14. showing your remotes
-    git remote -v
+    git remote -v(v:显示URL链接)
+
 15. adding remote repositories
     git remote add <shortname> <url>
-16. fetching and pulling from your remotes
+
+16. fetching and pulling from your remotes 71
     git fetch remote-name
+
 17. pushing to your remotes
     git push remote-name branch-name
+
 18. inspecting(检查) a remote
     git remote show remote-name
-19. removing and renaming remotes
+
+19. removing and renaming remotes 73
     git remote rename shortname-old shortname-new
         eg:git remote rename pb paul
+
 20. listing your tags
     git tag
+
 21. creating tags
     2种tags:lightweight and annotated(注解)
+
     annotated tags
         git tag -a v1.1 -m 'my version 1.4'
         git show v1.1 显示tag
         注:tag是在commit后添加
+
     lightweight tags
         git tag v1.1-lw
         git show v1.1-lw don't see extra tag information
+
 22. tagging later
+忘记tag之前注释，用如下方法来后期指定 77
     git tag -a -v1.2 9fceb02 
+
 23. sharing tags
     git push origin tagname 默认情况并不push tags
         eg:git push origin v1.1
@@ -94,3 +120,87 @@
 24. checking out tags
     git checkout -b branchname tagname
 
+=============================================================
+chap 3
+1. creating a new branch
+    git branch newbranch
+    git log --oneline --decorate: show where branch pointers are pointing
+2.  switch branches
+    git checkout branchname
+    git log --oneline --decorate --graph -all:print out history of commit,show where your branch pointers and how your history has diverged.
+3.  basic branching and merging p90
+4.  barch management
+    git branch --merged/--no-merged:查看整合/未整合分支
+    git branch -d branchname:删除分支
+5.  pushing 
+    git push remote branch
+6.  tracking branches
+    git checkout --track origin/serverfix
+        serverfix set up to track remote branch serverfix from origin,switched to a new branch 'serverfix'
+7.  pulling
+    deleting remote branches
+        git push origin --delete branchname
+8.  rebasing
+   \todo 仔细研究 p115 
+============================================================
+chap 4
+1.  generating ssh public key p134
+============================================================
+chap 5
+略
+============================================================
+chap 6 github基本使用 略
+============================================================
+chap 7  git tools
+1.  简洁显示commit
+    git log --abbrev-commit --pretty=oneline
+2.  显示所有commit
+    git reflog
+        eg:git show HEAD@{5}
+        git show master@{yesterday}
+3.  ancestry(祖先) Reference
+    git log --pretty=format:'%h %s' --graph
+    git show HEAD^
+4.  interactive staging p262
+    git add -i/--interactive
+5.  stashing and cleaning
+    git stash
+    查看stash list
+    git stash list
+    重新应用
+    git stash apply
+    应用指定的list
+    git stash apply stash@{2}
+    reapply the staged changes文件变更后,使暂存文件重新暂存
+    git stash apply --index
+    remove stash
+    git stash drop
+    apply stash and drop it from stack
+    git stash pop
+6.  not stash anything that you're already staged with git add.
+    git stash --keep-index
+7.  stash any untracked files you've created
+    git stash --include-untracked/ -u
+8.  not stash everything that is modified but will prompt you
+    git stash --patch
+9.  creating a branch from a stash
+    git stash branch branch_name
+10. cleaning your working directory
+    git clean
+    remove everything but save it in a stash
+    git stash --all
+    remove any files and any subdirectories that become empty
+    git clean -f -d
+    do a dry run and tell me what you would have removed
+    git clean -d -n
+11. search
+    git grep -n
+            -n:print out the line number where matches
+            --count:how many matches there were in each file
+            -p:see what method or function that found
+12. git log searching p279
+13. changing the last commit
+    git commit --amend
+14. changing multiple commit messages
+    git rebase -i HEAD~3
+p298
