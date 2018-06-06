@@ -1,4 +1,4 @@
-chap 2
+﻿chap 2
 1.  init a repostitory in an existing dir
     git init, git add, git commit -m ''
 2.  track new files
@@ -23,18 +23,18 @@ Note:if you've staged all of your changes,will give you no output.
 see what you've staged that will go into your next commit
     \todo git diff --cached/--staged 两者同义词,但具体区别待查
 5.  commiting your changes
-    git commit
+    git commit p54
     git config --global core.editor  配置默认编辑器 p54
 6.  skipping the staging area
     git add -a 将所有修改文件自动加入stage,谨慎使用
         eg: git add -a -m 'your commit'
-7.  removing files 56
+7.  removing files p56
     git rm 
         git rm --cached 删除所有跟踪files,硬盘上并未真正删除
     git rm log/\*.log: 删除log目录下所有以.log结尾的文件 57
     git rm \*~: 删除所有～结尾的文件
 8.  moving files
-    git mv
+    git mv file_from file_to
 9.  viewing the commit history
     git log 
         git log -p show the difference introduced in each commit
