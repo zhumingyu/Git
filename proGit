@@ -204,3 +204,5 @@ chap 7  git tools
 14. changing multiple commit messages
     git rebase -i HEAD~3
 p298
+
+chap 8 customizing git P381
