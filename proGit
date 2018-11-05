@@ -102,14 +102,17 @@ see what you've staged that will go into your next commit
 
     annotated tags
         git tag -a v1.1 -m 'my version 1.4'
+        -m 添加标签中的详细信息
         git show v1.1 显示tag
         注:tag是在commit后添加
 
     lightweight tags
+轻量标签无需添加-a -m -s 选项
         git tag v1.1-lw
         git show v1.1-lw don't see extra tag information
 
 22. tagging later
+后期添加标签
 忘记tag之前注释，用如下方法来后期指定 77
     git tag -a -v1.2 9fceb02 
 
@@ -117,17 +120,26 @@ see what you've staged that will go into your next commit
     git push origin tagname 默认情况并不push tags
         eg:git push origin v1.1
     git push origin --tags 一次性推送所有tags
+/TODO 检出标签，后期待查阅update
 24. checking out tags
     git checkout -b branchname tagname
 
+25.git aliases 
+创建别名方便操作 p78
+
 =============================================================
-chap 3
-1. creating a new branch
+/NOTE chap3
+chap 3 p81
+1. creating a new branch 创建分支
     git branch newbranch
+查看各分支当前所指的对象
     git log --oneline --decorate: show where branch pointers are pointing
-2.  switch branches
+2.  switch branches 切换分支
     git checkout branchname
+输出提交历史，各分支指向情况,项目分支分叉情况
     git log --oneline --decorate --graph -all:print out history of commit,show where your branch pointers and how your history has diverged.
+/FIXME test issus53
+/FIXME fix hotfix
 3.  basic branching and merging p90
 4.  barch management
     git branch --merged/--no-merged:查看整合/未整合分支
