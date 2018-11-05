@@ -138,7 +138,6 @@ chap 3 p81
     git checkout branchname
 输出提交历史，各分支指向情况,项目分支分叉情况
     git log --oneline --decorate --graph -all:print out history of commit,show where your branch pointers and how your history has diverged.
-/FIXME test issus53
 3.  basic branching and merging p90
 4.  barch management
     git branch --merged/--no-merged:查看整合/未整合分支
