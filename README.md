@@ -24,7 +24,7 @@
 
 - *.[oa]:忽略所有以o或a结尾的文件
 
-[^1]:！lib.a: but do track lib.a,even though you're ignoring .a files above
+！lib.a: but do track lib.a,even though you're ignoring .a files above
 /TODO:only ignore the TODO file in the current dir,not subdir
 build: ignore all files in the build/ dir.
 doc/*.txt: ignore doc/notes.txt,but not doc/server/arch.txt
@@ -32,7 +32,7 @@ doc/**/*.pdf: ignore all .pdf files in the doc/ dir
 
 4. viewing your staged and unstaged changes
 
-Note:if you've staged all of your changes,will give you no output.
+Note:if you've staged all of your changes,will give you no output.[^1]
 
     git diff 
 
