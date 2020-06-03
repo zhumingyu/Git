@@ -168,7 +168,7 @@ see what you've staged that will go into your next commit
 
 创建别名方便操作 p78
 
-=============================================================
+-----------------------------------------------------
 /NOTE chap3
 chap 3 p81
 1. creating a new branch 创建分支
