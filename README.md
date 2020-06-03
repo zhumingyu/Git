@@ -24,7 +24,7 @@
 
 - *.[oa]:忽略所有以o或a结尾的文件
 
-！lib.a: but do track lib.a,even though you're ignoring .a files above
+[^1]:！lib.a: but do track lib.a,even though you're ignoring .a files above
 /TODO:only ignore the TODO file in the current dir,not subdir
 build: ignore all files in the build/ dir.
 doc/*.txt: ignore doc/notes.txt,but not doc/server/arch.txt
