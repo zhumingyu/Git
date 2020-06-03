@@ -30,9 +30,9 @@ build: ignore all files in the build/ dir.
 doc/*.txt: ignore doc/notes.txt,but not doc/server/arch.txt
 doc/**/*.pdf: ignore all .pdf files in the doc/ dir
 
-[^1]:4. viewing your staged and unstaged changes
+[^1]: 4. viewing your staged and unstaged changes
 
-Note:if you've staged all of your changes,will give you no output.[^1]
+Note:if you've staged all of your changes,will give you no output. [^1] 
 
     git diff 
 
