@@ -196,51 +196,84 @@ see what you've staged that will go into your next commit
 创建别名方便操作 p78
 
 -----------------------------------------------------
-/NOTE chap3
-chap 3 p81
+### chap 3 Git Branching  p81
+
 1. creating a new branch 创建分支
-    git branch newbranch
-查看各分支当前所指的对象
-    git log --oneline --decorate: show where branch pointers are pointing
+
+        git branch newbranch
+
+            查看各分支当前所指的对象
+
+                git log --oneline --decorate: show where branch pointers are pointing
+
 2.  switch branches 切换分支
-    git checkout branchname
-输出提交历史，各分支指向情况,项目分支分叉情况
-    git log --oneline --decorate --graph -all:print out history of commit,show where your branch pointers and how your history has diverged.
-/FIXME test issus53
-/FIXME fix hotfix
+
+        git checkout branchname
+
+            输出提交历史，各分支指向情况,项目分支分叉情况
+            
+                git log --oneline --decorate --graph -all:print out history of commit,show where your branch pointers and how your history has diverged.
+
+        /FIXME test issus53
+        /FIXME fix hotfix
+
 3.  basic branching and merging p90
-4.  barch management
+
+4.  barch management p99 
+
     git branch --merged/--no-merged:查看整合/未整合分支
+
     git branch -d branchname:删除分支 -D 选项强制删除
-创建新分支整合后删除基本流程:
-        1.git checkout -b branchname
-        2.modify
-        3.git commit -a -m 'commitname'
-        4.git checkout master
-        5.git merge branchname
-        6.git branch -d branchname
+
+            创建新分支整合后删除基本流程:
+
+                1.git checkout -b branchname
+                
+                2.modify
+
+                3.git commit -a -m 'commitname'
+
+                4.git checkout master
+
+                5.git merge branchname
+
+                6.git branch -d branchname
 
 /NOTE 分支流介绍
+
 branching workflows
 
 remote branches
-git remote show 
-git ls-remote 显示远程引用完整列表 
+
+        git remote show 
+
+        git ls-remote 显示远程引用完整列表 
 
 5.  pushing 
+
     git push remote branch
+
 6.  tracking branches跟踪分支,可以指定跟踪分支
+
     git checkout --track origin/serverfix
+    
         serverfix set up to track remote branch serverfix from origin,switched to a new branch 'serverfix'
-指定本地名sf的分支指定远程serverfix分支
+
+            指定本地名sf的分支指定远程serverfix分支
+
     git checkout -b sf origin/serverfix
+
 7.  pulling
-    deleting remote branches删除远程分支
+
+    deleting remote branches
+   
         git push origin --delete branchname
+
 8.  rebasing中文翻译:变基
+
    /TODO 仔细研究 p115 
-============================================================
-/NOTE chap4
+
+--------------------------------------------------
 chap 4
 1.  generating ssh public key p134
 ============================================================
