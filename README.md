@@ -30,9 +30,9 @@ build: ignore all files in the build/ dir.
 doc/*.txt: ignore doc/notes.txt,but not doc/server/arch.txt
 doc/**/*.pdf: ignore all .pdf files in the doc/ dir
 
-4. viewing your staged and unstaged changes [^1]
+4. viewing your staged and unstaged changes 
 
-[^1]: Note:if you've staged all of your changes,will give you no output. 
+Note:if you've staged all of your changes,will give you no output. 
 
     git diff 
 
@@ -58,9 +58,9 @@ see what you've staged that will go into your next commit
 
         git rm --cached 删除所有跟踪files,硬盘上并未真正删除
 
-    git rm log/\*.log: 删除log目录下所有以.log结尾的文件 57
+        git rm log/\*.log: 删除log目录下所有以.log结尾的文件 57
 
-    git rm \*~: 删除所有～结尾的文件
+        git rm \*~: 删除所有～结尾的文件
     
 8.  moving files
 
@@ -95,7 +95,9 @@ see what you've staged that will go into your next commit
 10. limiting log output p65
 
     git log --since=2.weeks get the list of commits made in the last two weeks.
+
             --author 过滤指定author
+
             --grep search for keywords
 
 11. undoing things
@@ -105,63 +107,88 @@ see what you've staged that will go into your next commit
         eg:git commit -m 'initial commit'
            git add forgotten_file
            git commit --amend
+
     附:撤消最后一次commit,上面命令只是再次修改注释内容
+
         git reset HEAD~
         
 12. unstaging a staged file 66
+
     git reset HEAD <filename> 谨慎使用
 
 13. unmodifying a modified file
+
     git checkout -- modified_filename
+
         eg: git checkout -- README.md
 
 14. showing your remotes
+
     git remote -v(v:显示URL链接)
 
 15. adding remote repositories
+
     git remote add <shortname> <url>
 
 16. fetching and pulling from your remotes 71
+
     git fetch remote-name
 
 17. pushing to your remotes
+
     git push remote-name branch-name
 
 18. inspecting(检查) a remote
+
     git remote show remote-name
 
 19. removing and renaming remotes 73
+
     git remote rename shortname-old shortname-new
+
         eg:git remote rename pb paul
 
 20. listing your tags
+
     git tag
 
 21. creating tags
+
     2种tags:lightweight and annotated(注解)
 
     annotated tags
+
         git tag -a v1.1 -m 'my version 1.4'
+
         -m 添加标签中的详细信息
+
         git show v1.1 显示tag
+
         注:tag是在commit后添加
 
     lightweight tags
-轻量标签无需添加-a -m -s 选项
-        git tag v1.1-lw
-        git show v1.1-lw don't see extra tag information
 
-22. tagging later
-后期添加标签
-忘记tag之前注释，用如下方法来后期指定 77
-    git tag -a -v1.2 9fceb02 
+        轻量标签无需添加-a -m -s 选项
+
+            git tag v1.1-lw
+            git show v1.1-lw don't see extra tag information
+
+22. tagging later(后期添加标签)
+
+    忘记tag之前注释，用如下方法来后期指定 77
+         git tag -a -v1.2 9fceb02 
 
 23. sharing tags
+
     git push origin tagname 默认情况并不push tags
         eg:git push origin v1.1
+
     git push origin --tags 一次性推送所有tags
+
 /TODO 检出标签，后期待查阅update
+
 24. checking out tags
+
     git checkout -b branchname tagname
 
 25.git aliases 
